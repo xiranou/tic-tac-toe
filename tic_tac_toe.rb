@@ -17,11 +17,19 @@ class TicTacToeBoard
       (grid_size - 1).downto(0) do |index|
         rows << index if index % size == 0
       end
-    end.sort
+    end
   end
 
   def horizontal_win?
+    rows.each do |row_head|
+      return true if matched?(grid[row_head...row_head+size])
+    end
+    return false
+  end
 
+  def matched?(target_array)
+    return false if target_array.include?("_")
+    target_array.uniq.length == 1
   end
 
 end
