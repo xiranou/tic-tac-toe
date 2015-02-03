@@ -12,6 +12,14 @@ class TicTacToeBoard
     grid[move[:index]] = move[:mark]
   end
 
+  def rows
+    [].tap do |rows|
+      (grid_size - 1).downto(0) do |index|
+        rows << index if index % size == 0
+      end
+    end.sort
+  end
+
   def horizontal_win?
 
   end
