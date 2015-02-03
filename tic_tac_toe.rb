@@ -4,7 +4,7 @@ class TicTacToeBoard
 
   def initialize(size=3)
     @size = size
-    @grid = Array.new(size*size) { |quad| "_" }
+    @grid = Array.new(size*size) { |spot| "_" }
   end
 
   def mark(move)
