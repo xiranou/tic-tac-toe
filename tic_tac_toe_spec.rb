@@ -18,6 +18,12 @@ describe TicTacToeBoard do
     end
   end
 
+  describe "rows" do
+    it "should return all the starting indexes of rows in board" do
+      expect(@board.rows).to eq [0,3,6]
+    end
+  end
+
   describe "horizontal win" do
     it "should return true if a row has the same marks" do
       [*0..2].each do |idx|
