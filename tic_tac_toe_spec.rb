@@ -20,7 +20,7 @@ describe TicTacToeBoard do
 
   describe "rows" do
     it "should return all the starting indexes of rows in board" do
-      expect(@board.rows).to eq [0,3,6]
+      expect(@board.rows).to match_array([0,3,6])
     end
   end
 
