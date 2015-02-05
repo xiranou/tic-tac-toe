@@ -1,3 +1,4 @@
+require 'debugger'
 class TicTacToeBoard
 
   attr_reader :grid, :size, :grid_size
@@ -29,6 +30,14 @@ class TicTacToeBoard
 
   def columns
     [*0...size]
+  end
+
+  def get_column(column_head)
+    [].tap do |column|
+      [*column_head...grid_size].map do |idx|
+        column << grid[idx] if idx % 3 == column_head
+      end
+    end
   end
 
   def vertical_win?
