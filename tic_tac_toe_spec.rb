@@ -62,4 +62,10 @@ describe TicTacToeBoard do
     end
   end
 
+  describe "diagonals" do
+    it "should return all starting indexes of diagonals in board" do
+      expect(@board.diagonals).to match_array([0,2])
+    end
+  end
+
 end
