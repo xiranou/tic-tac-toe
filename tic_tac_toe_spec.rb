@@ -123,6 +123,12 @@ describe TicTacToeBoard do
         expect(@board.game_win?).to be true
       end
     end
+    context "should return false when no winning condition is met" do
+      it "should return false for a draw game" do
+        emulate_game([0,2,4,7])
+        expect(@board.game_win?).to be false
+      end
+    end
   end
 
 end
