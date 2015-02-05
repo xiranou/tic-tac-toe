@@ -86,4 +86,8 @@ class TicTacToeBoard
     horizontal_win? || vertical_win? || diagonal_win?
   end
 
+  def finish?
+    !grid.include?("_")
+  end
+
 end
