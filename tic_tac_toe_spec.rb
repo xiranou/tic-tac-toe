@@ -8,6 +8,18 @@ describe TicTacToeBoard do
     end
   end
 
+  def emulate_game(winning_spots, mark="x")
+    mark_spots(winning_spots)
+    free_spots = get_free_spots(winning_spots)
+    mark_spots(free_spots, "o")
+  end
+
+  def get_free_spots(occupied)
+    [*0...@board.grid_size].reject do |idx|
+      occupied.include?(idx)
+    end
+  end
+
   before :each do
     @board = TicTacToeBoard.new
   end
@@ -84,18 +96,18 @@ describe TicTacToeBoard do
 
   describe "game win" do
     context "should return true if any one of the win condition returns true" do
-      it "should return true when there's a horizontal_win" do
-        mark_spots([0,1,2])
+      it "should return true when there's a horizontal_win in game" do
+        emulate_game([0,1,2])
         expect(@board.game_win?).to be true
       end
 
-      it "should return true when there's a vertical_win" do
-        mark_spots([1,4,7])
+      it "should return true when there's a vertical_win in game" do
+        emulate_game([1,4,7])
         expect(@board.game_win?).to be true
       end
 
-      it "should return true when there's a diagonal_win" do
-        mark_spots([0,4,8])
+      it "should return true when there's a diagonal_win in game" do
+        emulate_game([0,4,8])
         expect(@board.game_win?).to be true
       end
     end
