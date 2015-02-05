@@ -55,6 +55,15 @@ class TicTacToeBoard
     [0, (size-1)]
   end
 
+  def get_diagonal(diagonal_head)
+    diagonal_head == 0 ? direction = (size + 1) : direction = (size - 1)
+    [grid[diagonal_head]].tap do |diagonal|
+      until diagonal.length == size
+        diagonal << grid[(diagonal_head + direction)]
+      end
+    end
+  end
+
   def diagonal_win?
     diagonals.each do |diagonal_head|
       return true if matched?(get_diagonal(diagonal_head))
