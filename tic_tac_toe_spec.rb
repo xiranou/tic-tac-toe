@@ -70,7 +70,7 @@ describe TicTacToeBoard do
 
   describe "diagonal win" do
     it "should return true if a diagonal contains the same marks" do
-      [0,5,9].each do |idx|
+      [0,4,8].each do |idx|
         @board.mark({index: idx, mark: "x"})
       end
       expect(@board.diagonal_win?).to be true
