@@ -110,6 +110,11 @@ describe TicTacToeBoard do
         emulate_game([0,4,8])
         expect(@board.game_win?).to be true
       end
+
+      it "should return true for other mark gets win" do
+        emulate_game([0,4,8], "o")
+        expect(@board.game_win?).to be true
+      end
     end
   end
 
