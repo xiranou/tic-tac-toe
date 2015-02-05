@@ -12,11 +12,17 @@ class Game
 
   def set_mark(choice)
     @player = marks.delete(choice)
-    @computer = GameAi.new({board: board, mark: marks.last})
+    @computer = GameAi.new(board: board, mark: marks.last)
   end
 
   def winner
     turn.last == player ? "player" : "computer"
+  end
+
+  def game_turn(player_move)
+    turn << player << computer.mark
+    board.mark(move)
+    computer.mark_spot
   end
 
   def play
