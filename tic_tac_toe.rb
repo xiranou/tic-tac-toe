@@ -31,6 +31,13 @@ class TicTacToeBoard
     [*0...size]
   end
 
+  def vertical_win?
+    columns.each do |column_head|
+      return true if matched?(get_column(column_head))
+    end
+    return false
+  end
+
   def matched?(target_array)
     return false if target_array.include?("_")
     target_array.uniq.length == 1
