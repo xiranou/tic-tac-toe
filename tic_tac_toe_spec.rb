@@ -4,7 +4,7 @@ require './tic_tac_toe'
 describe TicTacToeBoard do
   def mark_spots(spot_indexes, mark="x")
     spot_indexes.each do |idx|
-      @board.mark({index: idx, mark: mark})
+      @board.mark(index: idx, mark: mark)
     end
   end
 
@@ -30,8 +30,7 @@ describe TicTacToeBoard do
 
   describe "mark" do
     it "should mark the given spot with the given mark" do
-      move = {index: 0, mark: 'x'}
-      @board.mark(move)
+      @board.mark(index: 0, mark: 'x')
       expect(@board.grid[0]).to eq("x")
     end
   end

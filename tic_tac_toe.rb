@@ -9,7 +9,7 @@ class TicTacToeBoard
     @grid = Array.new(grid_size) { |spot| "_" }
   end
 
-  def mark(move)
+  def mark(move={})
     grid[move[:index]] = move[:mark]
   end
 
