@@ -21,22 +21,21 @@ class Game
 
   def game_turn(player_move)
     turn << player << computer.mark
-    board.mark(move)
+    board.mark(player_move)
     computer.mark_spot
   end
 
   def play
     until @board.finish?
       return winner if @board.game_win?
-      turn << player
-      move = Ui.move
-      @board.mark(move)
-      turn << computer.mark
-      @computer.mark_spot
+      # turn << player
+      # move = Ui.move
+      # @board.mark(move)
+      # turn << computer.mark
+      # @computer.mark_spot
     end
     return "Draw!"
     play if play_again?
-    Ui.goodbye_prompt
   end
 
   def play_again?
