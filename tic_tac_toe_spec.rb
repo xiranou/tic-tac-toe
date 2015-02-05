@@ -125,4 +125,15 @@ describe TicTacToeBoard do
     end
   end
 
+  describe "finish" do
+    it "should return true when no empty spots remain" do
+      emulate_game([0,2,4,7])
+      expect(@board.finish?).to be true
+    end
+    it "should return false when there are still empty spots remain" do
+      mark_spots([1,3,5,7])
+      expect(@board.finish?).to be false
+    end
+  end
+
 end
