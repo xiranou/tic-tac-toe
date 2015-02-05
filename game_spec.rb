@@ -10,13 +10,13 @@ describe "Game" do
 
   describe "should let player choose their marks" do
     before do
-      @game.set_mark(0)
+      @game.set_mark("x")
     end
     it "should return the player as 'x' mark" do
      expect(@game.player).to eq("x")
     end
     it "should return the computer as 'o' mark" do
-      expect(@game.computer).to eq("o")
+      expect(@game.computer.mark).to eq("o")
     end
   end
 end
