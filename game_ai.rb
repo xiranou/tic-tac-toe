@@ -1,7 +1,7 @@
 class GameAi
   attr_reader :mark, :board
 
-  def initialize(game)
+  def initialize(game={})
     @mark = game[:mark]
     @board = game[:board]
   end
@@ -16,6 +16,6 @@ class GameAi
 
   def mark_spot
     pick = free_spots.sample
-    board.mark({index: pick, mark: mark})
+    board.mark(index: pick, mark: mark)
   end
 end

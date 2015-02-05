@@ -5,7 +5,7 @@ require './tic_tac_toe'
 describe "GameAi" do
   before do
     @board = TicTacToeBoard.new
-    @computer = GameAi.new({board: @board, mark: "o"})
+    @computer = GameAi.new(board: @board, mark: "o")
   end
 
   describe "#free_spots" do
