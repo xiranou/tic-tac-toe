@@ -21,7 +21,8 @@ describe "Game" do
   describe "turn" do
     before do
       @game = Game.new
-      player_move = {index:0, mark:"x"}
+      @game.set_mark("x")
+      player_move = {index:0, mark:@game.player}
       @game.game_turn(player_move)
       @current_grid = @game.board.grid
     end
