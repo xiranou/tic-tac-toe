@@ -26,19 +26,16 @@ class Game
   end
 
   def play
+    # set_marks(Ui.player_mark)
     until @board.finish?
       return winner if @board.game_win?
-      # turn << player
-      # move = Ui.move
-      # @board.mark(move)
-      # turn << computer.mark
-      # @computer.mark_spot
+      # game_turn(Ui.player_move)
     end
     return "Draw!"
-    play if play_again?
+    # play if play_again?
   end
 
-  def play_again?
-    Ui.again_prompt == 0
-  end
+  # def play_again?
+  #   Ui.again_prompt == 0
+  # end
 end
