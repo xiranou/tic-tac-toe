@@ -8,10 +8,16 @@ describe TicTacToeBoard do
     end
   end
 
+  def random_marks(spot_indexes)
+    spot_indexes.each do |idx|
+      @board.mark({index: idx, mark: ["x","o"].sample})
+    end
+  end
+
   def emulate_game(chosen_spots, mark="x")
     mark_spots(chosen_spots)
     free_spots = get_free_spots(chosen_spots)
-    mark_spots(free_spots, "o")
+    random_marks(free_spots)
   end
 
   def get_free_spots(occupied)
