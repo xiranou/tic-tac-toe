@@ -27,6 +27,10 @@ class TicTacToeBoard
     return false
   end
 
+  def columns
+    [*0...size]
+  end
+
   def matched?(target_array)
     return false if target_array.include?("_")
     target_array.uniq.length == 1
