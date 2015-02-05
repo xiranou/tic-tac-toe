@@ -48,7 +48,7 @@ describe TicTacToeBoard do
 
   describe "vertical win" do
     it "should return true if a column contains the same marks" do
-      [0,1,2].each do |idx|
+      [0,3,6].each do |idx|
         @board.mark({index: idx, mark: "x"})
       end
       expect(@board.vertical_win?).to be true
