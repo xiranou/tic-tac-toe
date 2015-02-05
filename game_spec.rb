@@ -4,12 +4,10 @@ require './game_ai'
 require './game'
 
 describe "Game" do
-  before :each do
-    @game = Game.new
-  end
 
   describe "should let player choose their marks" do
     before do
+      @game = Game.new
       @game.set_mark("x")
     end
     it "should return the player as 'x' mark" do
@@ -22,9 +20,10 @@ describe "Game" do
 
   describe "turn" do
     before do
+      @game = Game.new
       player_move = {index:0, mark:"x"}
       @game.game_turn(player_move)
-      @current_grid = @game.board.gird
+      @current_grid = @game.board.grid
     end
     context 'should alternate turns' do
       it "should have one player mark" do
@@ -43,4 +42,5 @@ describe "Game" do
       end
     end
   end
+
 end
