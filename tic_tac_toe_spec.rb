@@ -8,16 +8,10 @@ describe TicTacToeBoard do
     end
   end
 
-  def random_marks(spot_indexes)
-    spot_indexes.each do |idx|
-      @board.mark({index: idx, mark: ["x","o"].sample})
-    end
-  end
-
   def emulate_game(chosen_spots, mark="x")
     mark_spots(chosen_spots)
     free_spots = get_free_spots(chosen_spots)
-    random_marks(free_spots)
+    mark_spots(free_spots,'o')
   end
 
   def get_free_spots(occupied)
@@ -104,22 +98,22 @@ describe TicTacToeBoard do
   describe "game win" do
     context "should return true if any one of the win condition returns true" do
       it "should return true when there's a horizontal_win in game" do
-        emulate_game([0,1,2])
+        emulate_game([0,1,2,4,6])
         expect(@board.game_win?).to be true
       end
 
       it "should return true when there's a vertical_win in game" do
-        emulate_game([1,4,7])
+        emulate_game([1,4,7,0,8])
         expect(@board.game_win?).to be true
       end
 
       it "should return true when there's a diagonal_win in game" do
-        emulate_game([0,4,8])
+        emulate_game([0,4,8,1,5])
         expect(@board.game_win?).to be true
       end
 
       it "should return true for other mark gets win" do
-        emulate_game([0,4,8], "o")
+        emulate_game([0,4,8,1,5], "o")
         expect(@board.game_win?).to be true
       end
     end
