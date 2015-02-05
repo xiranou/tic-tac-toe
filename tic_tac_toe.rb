@@ -51,6 +51,10 @@ class TicTacToeBoard
     return false
   end
 
+  def diagonals
+    [0, (size-1)]
+  end
+
   def matched?(target_array)
     return false if target_array.include?("_")
     target_array.uniq.length == 1
