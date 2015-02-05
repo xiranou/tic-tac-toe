@@ -2,6 +2,11 @@ require 'rspec'
 require_relative './tic_tac_toe.rb'
 
 describe TicTacToeBoard do
+  def winning_marks(idx_array, mark="x")
+    idx_array.each do |idx|
+      @board.mark({index: idx, mark: mark})
+    end
+  end
 
   before :each do
     @board = TicTacToeBoard.new
@@ -26,9 +31,7 @@ describe TicTacToeBoard do
 
   describe "horizontal win" do
     it "should return true if a row has the same marks" do
-      [*0..2].each do |idx|
-        @board.mark({index:idx, mark: 'x'})
-      end
+      winning_marks([*0..2])
       expect(@board.horizontal_win?).to be true
     end
 
@@ -48,9 +51,7 @@ describe TicTacToeBoard do
 
   describe "vertical win" do
     it "should return true if a column contains the same marks" do
-      [0,3,6].each do |idx|
-        @board.mark({index: idx, mark: "x"})
-      end
+      winning_marks([0,3,6])
       expect(@board.vertical_win?).to be true
     end
 
@@ -70,16 +71,12 @@ describe TicTacToeBoard do
 
   describe "diagonal win" do
     it "should return true if a diagonal contains the same marks" do
-      [0,4,8].each do |idx|
-        @board.mark({index: idx, mark: "x"})
-      end
+      winning_marks([0,4,8])
       expect(@board.diagonal_win?).to be true
     end
 
     it "should return true if the other diagonal contains the same marks" do
-      [2,4,6].each do |idx|
-        @board.mark({index: idx, mark: "x"})
-      end
+      winning_marks([2,4,6], "o")
       expect(@board.diagonal_win?).to be true
     end
 
