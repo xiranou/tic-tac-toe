@@ -2,8 +2,8 @@ require 'rspec'
 require './tic_tac_toe'
 
 describe TicTacToeBoard do
-  def winning_marks(idx_array, mark="x")
-    idx_array.each do |idx|
+  def mark_spots(spot_indexes, mark="x")
+    spot_indexes.each do |idx|
       @board.mark({index: idx, mark: mark})
     end
   end
@@ -31,14 +31,12 @@ describe TicTacToeBoard do
 
   describe "horizontal win" do
     it "should return true if a row has the same marks" do
-      winning_marks([*0..2])
+      mark_spots([*0..2])
       expect(@board.horizontal_win?).to be true
     end
 
     it "should return false if no row has the same marks" do
-      ["x", "o"].each_with_index do |mark, idx|
-        @board.mark({index: idx, mark: mark})
-      end
+      mark_spots([1,4,5])
       expect(@board.horizontal_win?).to be false
     end
   end
@@ -51,14 +49,12 @@ describe TicTacToeBoard do
 
   describe "vertical win" do
     it "should return true if a column contains the same marks" do
-      winning_marks([0,3,6])
+      mark_spots([0,3,6])
       expect(@board.vertical_win?).to be true
     end
 
     it "should return false if no column has the same marks" do
-      ["x", "o"].each_with_index do |mark, idx|
-        @board.mark({index: idx, mark: mark})
-      end
+     mark_spots([1,4,5])
       expect(@board.vertical_win?).to be false
     end
   end
@@ -71,19 +67,17 @@ describe TicTacToeBoard do
 
   describe "diagonal win" do
     it "should return true if a diagonal contains the same marks" do
-      winning_marks([0,4,8])
+      mark_spots([0,4,8])
       expect(@board.diagonal_win?).to be true
     end
 
     it "should return true if the other diagonal contains the same marks" do
-      winning_marks([2,4,6], "o")
+      mark_spots([2,4,6], "o")
       expect(@board.diagonal_win?).to be true
     end
 
     it "should return false if no diagonal has the same marks" do
-      ["x", "o"].each_with_index do |mark, idx|
-        @board.mark({index: idx, mark: mark})
-      end
+     mark_spots([1,4,5])
       expect(@board.diagonal_win?).to be false
     end
   end
@@ -91,17 +85,17 @@ describe TicTacToeBoard do
   describe "game win" do
     context "should return true if any one of the win condition returns true" do
       it "should return true when there's a horizontal_win" do
-        winning_marks([0,1,2])
+        mark_spots([0,1,2])
         expect(@board.game_win?).to be true
       end
 
       it "should return true when there's a vertical_win" do
-        winning_marks([1,4,7])
+        mark_spots([1,4,7])
         expect(@board.game_win?).to be true
       end
 
       it "should return true when there's a diagonal_win" do
-        winning_marks([0,4,8])
+        mark_spots([0,4,8])
         expect(@board.game_win?).to be true
       end
     end
