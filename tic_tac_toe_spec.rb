@@ -88,4 +88,23 @@ describe TicTacToeBoard do
     end
   end
 
+  describe "game win" do
+    context "should return true if any one of the win condition returns true" do
+      it "should return true when there's a horizontal_win" do
+        winning_marks([0,1,2])
+        expect(@board.game_win?).to be true
+      end
+
+      it "should return true when there's a vertical_win" do
+        winning_marks([1,4,7])
+        expect(@board.game_win?).to be true
+      end
+
+      it "should return true when there's a diagonal_win" do
+        winning_marks([0,4,8])
+        expect(@board.game_win?).to be true
+      end
+    end
+  end
+
 end
