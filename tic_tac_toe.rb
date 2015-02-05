@@ -55,6 +55,13 @@ class TicTacToeBoard
     [0, (size-1)]
   end
 
+  def diagonal_win?
+    diagonals.each do |diagonal_head|
+      return true if matched?(get_diagonal(diagonal_head))
+    end
+    return false
+  end
+
   def matched?(target_array)
     return false if target_array.include?("_")
     target_array.uniq.length == 1
