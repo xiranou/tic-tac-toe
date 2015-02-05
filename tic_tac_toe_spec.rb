@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative './tic_tac_toe.rb'
+require './tic_tac_toe'
 
 describe TicTacToeBoard do
   def winning_marks(idx_array, mark="x")
