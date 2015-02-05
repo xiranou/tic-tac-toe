@@ -40,4 +40,10 @@ describe TicTacToeBoard do
     end
   end
 
+  describe "columns" do
+    it "should return all starting indexes of columns in board" do
+      expect(@board.columns).to match_array([0,1,2])
+    end
+  end
+
 end
