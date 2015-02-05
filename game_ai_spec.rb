@@ -1,11 +1,11 @@
 require 'rspec'
-require './ttt_ai'
+require './game_ai'
 require './tic_tac_toe'
 
-describe "TttAi" do
+describe "GameAi" do
   before do
     @board = TicTacToeBoard.new
-    @computer = TttAi.new({board: @board, mark: "o"})
+    @computer = GameAi.new({board: @board, mark: "o"})
   end
 
   describe "#free_spots" do

@@ -1,4 +1,4 @@
-class TttAi
+class GameAi
   attr_reader :mark, :board
 
   def initialize(game)
