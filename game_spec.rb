@@ -34,8 +34,13 @@ describe "Game" do
         expect(@current_grid.find_all{|mark| mark == "o"}.count).to eq(1)
       end
     end
-    it "should keep track of turns" do
-      expect(@game.turn).to match_array(['x','o'])
+    context "should keep track of turns" do
+      it "should have the right number of turns" do
+        expect(@game.turn.count).to eq(2)
+      end
+      it "should have the right order of turns" do
+        expect(@game.turn).to eq(["x", "o"])
+      end
     end
   end
 end
