@@ -8,9 +8,9 @@ describe TicTacToeBoard do
     end
   end
 
-  def emulate_game(winning_spots, mark="x")
-    mark_spots(winning_spots)
-    free_spots = get_free_spots(winning_spots)
+  def emulate_game(chosen_spots, mark="x")
+    mark_spots(chosen_spots)
+    free_spots = get_free_spots(chosen_spots)
     mark_spots(free_spots, "o")
   end
 
@@ -23,6 +23,7 @@ describe TicTacToeBoard do
   before :each do
     @board = TicTacToeBoard.new
   end
+
   it "should initialize with a default 3x3 grid" do
     expect(@board.grid.size).to eq(9)
   end
