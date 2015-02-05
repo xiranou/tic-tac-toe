@@ -21,9 +21,13 @@ class TicTacToeBoard
     end
   end
 
+  def get_row(row_head)
+    grid[row_head...(row_head + size)]
+  end
+
   def horizontal_win?
     rows.each do |row_head|
-      return true if matched?(grid[row_head...row_head+size])
+      return true if matched?(get_row(row_head))
     end
     return false
   end
