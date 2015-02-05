@@ -82,4 +82,8 @@ class TicTacToeBoard
     target_array.uniq.length == 1
   end
 
+  def game_win?
+    horizontal_win? || vertical_win? || diagonal_win?
+  end
+
 end
