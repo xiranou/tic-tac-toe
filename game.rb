@@ -7,7 +7,7 @@ class Game
   def initialize
     @board = TicTacToeBoard.new
     @marks = ["x","o"]
-    @trun = []
+    @turn = []
   end
 
   def set_mark(choice)
