@@ -75,6 +75,3 @@ class Game
 
   attr_writer :board, :ai
 end
-
-game = Game.new
-game.play
