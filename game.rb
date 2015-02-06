@@ -42,6 +42,11 @@ class Game
     set_mark(player_choice)
   end
 
+  def set_game
+    player_choose_mark
+    GameUi.print_screen(board)
+  end
+
   def game_round
     marks.cycle do |current_turn|
       game_turn(current_turn)
@@ -51,13 +56,9 @@ class Game
   end
 
   def play
-    player_choose_mark
-    GameUi.print_screen(board)
-
+    set_game
     game_round unless board.finish?
-
     GameUi.annouce_winner("draw") unless board.game_win?
-
     play_again? ? reset_game : GameUi.goodbye_prompt
   end
 
