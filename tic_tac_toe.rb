@@ -90,4 +90,12 @@ class TicTacToeBoard
     !grid.include?("_")
   end
 
+  def free_spots
+    [].tap do |spot_indexes|
+      grid.each_with_index do |spot, index|
+        spot_indexes << index if spot == "_"
+      end
+    end
+  end
+
 end
