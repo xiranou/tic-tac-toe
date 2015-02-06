@@ -22,12 +22,13 @@ module GameUi
       idx = player_input.to_i
       move={index: idx, mark: player}
     end
-    def again_prompt(error='Play Again? (y/n)')
-      puts error
+    def again_prompt(message='Play Again? (y/n)')
+      puts message
       choice = player_input
       ['y','n'].include?(choice) ? choice : again_prompt("invalid choice!")
     end
     def annouce_winner(winner)
+      puts "Draw Game!" if winner == 'draw'
       puts "#{winner.capitalize} is the winner!"
     end
   end
