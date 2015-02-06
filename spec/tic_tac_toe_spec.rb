@@ -1,5 +1,5 @@
 require 'rspec'
-require './tic_tac_toe'
+require_relative '../tic_tac_toe'
 
 describe TicTacToeBoard do
   def mark_spots(spot_indexes, mark="x")
