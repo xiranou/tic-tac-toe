@@ -26,7 +26,8 @@ module GameUi
       end
     end
 
-    def player_move
+    def player_move(message)
+      puts message if message
       move_index = player_input.to_i
     end
 

@@ -18,10 +18,14 @@ class Game
     turn.last == player ? "player" : "computer"
   end
 
-  def player_turn
-    move = {index: GameUi.player_move, mark: player}
-    board.mark(move)
+  def player_turn(message=nil)
+    move = {index: GameUi.player_move(message), mark: player}
+    valid_move?(move) ? board.mark(move) : player_turn("invalid move! pick another!")
     turn << player
+  end
+
+  def valid_move?(move)
+    board.free_spots.include?(move[:index])
   end
 
   def ai_turn
