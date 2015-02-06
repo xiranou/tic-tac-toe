@@ -22,10 +22,13 @@ module GameUi
       idx = player_input.to_i
       move={index: idx, mark: player}
     end
+    def again_prompt(error='Play Again? (y/n)')
+      puts error
+      choice = player_input
+      ['y','n'].include?(choice) ? choice : again_prompt("invalid choice!")
+    end
+    def annouce_winner(winner)
+      puts "#{winner.capitailize} is the winner!"
+    end
   end
 end
-
-board = TicTacToeBoard.new
-GameUi.print_screen(board)
-# GameUi.choose_mark(["x","o"])
-GameUi.player_move("x")
