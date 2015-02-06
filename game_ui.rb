@@ -36,6 +36,10 @@ module GameUi
       ['y','n'].include?(choice) ? choice : again_prompt("invalid choice!")
     end
 
+    def goodbye_prompt(message="Goodbye!")
+      puts message
+    end
+
     def annouce_winner(winner)
       puts "Draw Game!" if winner == 'draw'
       puts "#{winner.capitalize} is the winner!"
