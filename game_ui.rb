@@ -18,9 +18,8 @@ module GameUi
         choose_mark(marks)
       end
     end
-    def player_move(player)
-      idx = player_input.to_i
-      move={index: idx, mark: player}
+    def player_move
+      move_index = player_input.to_i
     end
     def again_prompt(message='Play Again? (y/n)')
       puts message
