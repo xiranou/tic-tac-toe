@@ -1,9 +1,8 @@
 class GameAi
-  attr_reader :mark, :board
+  attr_reader :board
 
-  def initialize(game={})
-    @mark = game[:mark]
-    @board = game[:board]
+  def initialize(board)
+    @board = board
   end
 
   def mark_spot(mark)
