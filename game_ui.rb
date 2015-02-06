@@ -28,7 +28,7 @@ module GameUi
       ['y','n'].include?(choice) ? choice : again_prompt("invalid choice!")
     end
     def annouce_winner(winner)
-      puts "#{winner.capitailize} is the winner!"
+      puts "#{winner.capitalize} is the winner!"
     end
   end
 end
