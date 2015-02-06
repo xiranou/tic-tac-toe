@@ -1,5 +1,6 @@
 require './tic_tac_toe'
 require './game_ai'
+require './game_ui'
 
 class Game
   attr_reader :board, :player, :computer, :marks, :turn
@@ -26,16 +27,21 @@ class Game
   end
 
   def play
-    # set_marks(Ui.player_mark)
+    player_choice = GameUi.choose_mark(marks)
+    set_mark(player_choice)
     until @board.finish?
-      return winner if @board.game_win?
-      # game_turn(Ui.player_move)
+      GameUi.print_screen(board)
+      return GameUi.annouce_winner(winner) if board.game_win?
+      game_turn(GameUi.player_move(player))
     end
     return "Draw!"
-    # play if play_again?
+    play if play_again?
   end
 
-  # def play_again?
-  #   Ui.again_prompt == 0
-  # end
+  def play_again?
+    GameUi.again_prompt == 'y'
+  end
 end
+
+game = Game.new
+game.play
