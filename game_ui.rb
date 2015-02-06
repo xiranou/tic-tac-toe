@@ -18,9 +18,14 @@ module GameUi
         choose_mark(marks)
       end
     end
+    def player_move(player)
+      idx = player_input.to_i
+      move={index: idx, mark: player}
+    end
   end
 end
 
 board = TicTacToeBoard.new
 GameUi.print_screen(board)
-GameUi.choose_mark(["x","o"])
+# GameUi.choose_mark(["x","o"])
+GameUi.player_move("x")
