@@ -6,7 +6,7 @@ class GameAi
     @board = game[:board]
   end
 
-  def mark_spot
+  def mark_spot(mark)
     pick = board.free_spots.sample
     board.mark(index: pick, mark: mark)
   end
