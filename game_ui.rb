@@ -6,10 +6,21 @@ module GameUi
       grid.each_slice(size) {|row| puts row.join(" | ")}
     end
     def player_input
-      input = gets.chomp
+      gets.chomp.downcase
+    end
+    def choose_mark(marks)
+      puts "Please choose your turn: #{marks.join(" / ")}"
+      choice = player_input
+      if marks.include?(choice)
+        choice
+      else
+        puts "invalid choice! Choose again."
+        choose_mark(marks)
+      end
     end
   end
 end
 
 board = TicTacToeBoard.new
 GameUi.print_screen(board)
+GameUi.choose_mark(["x","o"])
