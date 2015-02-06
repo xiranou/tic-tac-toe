@@ -1,6 +1,4 @@
-require 'debugger'
 class TicTacToeBoard
-
   attr_reader :grid, :size, :grid_size
 
   def initialize(size=3)
@@ -97,5 +95,4 @@ class TicTacToeBoard
       end
     end
   end
-
 end

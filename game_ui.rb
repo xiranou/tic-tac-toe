@@ -1,4 +1,3 @@
-require './tic_tac_toe'
 module GameUi
   class << self
     def print_screen(board)
