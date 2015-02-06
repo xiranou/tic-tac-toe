@@ -1,7 +1,3 @@
-require './tic_tac_toe'
-require './game_ai'
-require './game_ui'
-
 class Game
   attr_reader :board, :player, :computer, :ai, :marks, :turn
 
