@@ -5,18 +5,12 @@ require './tic_tac_toe'
 describe "GameAi" do
   before do
     @board = TicTacToeBoard.new
-    @computer = GameAi.new(board: @board, mark: "o")
-  end
-
-  describe "#free_spots" do
-    it "should return array of indexes of free spots on board grid" do
-      expect(@computer.free_spots).to match_array([*0..8])
-    end
+    @computer = GameAi.new(@board)
   end
 
   describe "#mark_spot" do
     before do
-      @computer.mark_spot
+      @computer.mark_spot('o')
     end
     it "should mark to an empty spot" do
       expect(@board.grid.include?("o")).to be true
