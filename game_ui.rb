@@ -5,6 +5,9 @@ module GameUi
       grid, size = board.grid, board.size
       grid.each_slice(size) {|row| puts row.join(" | ")}
     end
+    def player_input
+      input = gets.chomp
+    end
   end
 end
 
