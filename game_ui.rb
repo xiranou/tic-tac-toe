@@ -12,7 +12,7 @@ module GameUi
       puts "Please choose your turn: #{marks.join(" / ")}"
       choice = player_input
       if marks.include?(choice)
-        choice
+        choice_index = marks.index(choice)
       else
         puts "invalid choice! Choose again."
         choose_mark(marks)
