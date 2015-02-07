@@ -23,13 +23,6 @@ class Board
     grid[row_head...(row_head + size)]
   end
 
-  def horizontal_win? # check if any one of the rows has a winner
-    rows.each do |row_head|
-      return true if matched?(get_row(row_head))
-    end
-    return false
-  end
-
   def columns # gets all starting indexes of columns
     [*0...size]
   end
@@ -40,13 +33,6 @@ class Board
         column << grid[idx] if idx % size == column_head
       end
     end
-  end
-
-  def vertical_win? # check if any one of the column has a winner
-    columns.each do |column_head|
-      return true if matched?(get_column(column_head))
-    end
-    return false
   end
 
   def diagonals # gets all starting indexes of diagonals
@@ -68,14 +54,7 @@ class Board
     end
   end
 
-  def diagonal_win? # check if any of the diagonal has a winner
-    diagonals.each do |diagonal_head|
-      return true if matched?(get_diagonal(diagonal_head))
-    end
-    return false
-  end
-
-  def win_pattern_met?(pattern)
+  def win_pattern_met?(pattern) # check for winning patterns
     target_array = self.send("#{pattern}s")
     target_array.each do |target_head|
       values = self.send("get_#{pattern}", target_head)
@@ -90,8 +69,7 @@ class Board
   end
 
   def game_win? # check if one of the winning condition has met
-    # horizontal_win? || vertical_win? || diagonal_win?
-    win_pattern_met?("row") || win_pattern_met?("column") || win_pattern_met?("diagonal")
+    win_pattern_met?(:row) || win_pattern_met?(:column) || win_pattern_met?(:diagonal)
   end
 
   def finish? # check if the game has finished (no more empty spots)
