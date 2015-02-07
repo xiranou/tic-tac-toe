@@ -11,7 +11,8 @@ module GameUi
     end
 
     def player_input
-      gets.chomp.downcase
+      input = gets.chomp.downcase
+      input == 'exit' ? exit : (return input)
     end
 
     def choose_mark(marks)
