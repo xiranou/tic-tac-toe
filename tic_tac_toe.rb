@@ -99,7 +99,7 @@ class TicTacToeBoard
   def generate_index_grid
     [].tap do |index_grid|
       grid.each_with_index do |value, index|
-        value == '_' ? index_grid << " #{index} " : index_grid << "_#{value.upcase}_"
+        value == '_' ? index_grid << " #{index} " : index_grid << "(#{value.upcase})"
       end
     end
   end
