@@ -2,6 +2,7 @@ module GameUi
   class << self
     def print_screen(board)
       clear_screen
+      puts "enter the correspoding number to play"
       puts board
     end
 
