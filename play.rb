@@ -3,4 +3,4 @@ require './game/game_ai'
 require './game/game_ui'
 require './game/game'
 
-Game.new.play
+Game.new.do_magic

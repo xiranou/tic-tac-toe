@@ -76,6 +76,8 @@ class Game
     GameUi.again_prompt == 'y'
   end
 
+  alias :do_magic :play
+
   private
 
   attr_writer :board, :ai
