@@ -2,7 +2,7 @@ module GameUi
   class << self
     def print_screen(board)
       clear_screen
-      puts "Enter the correspoding number to play"
+      puts "Enter the correspoding number to play, type exit/quit to quit"
       puts board
     end
 
@@ -12,11 +12,11 @@ module GameUi
 
     def player_input
       input = gets.chomp.downcase
-      input == 'exit' ? exit : (return input)
+      ['exit', 'quit'].include?(input) ? exit : (return input)
     end
 
     def choose_mark(marks)
-      puts "Please choose your turn: #{marks.join(" / ")}"
+      puts "Please choose your turn: #{marks.join(" / ")}, type exit/quit to quit"
       choice = player_input
       if marks.include?(choice)
         choice_index = marks.index(choice)
