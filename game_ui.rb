@@ -2,7 +2,7 @@ module GameUi
   class << self
     def print_screen(board)
       clear_screen
-      puts board.to_s
+      puts board
     end
 
     def clear_screen
