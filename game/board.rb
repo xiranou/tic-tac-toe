@@ -11,7 +11,7 @@ class Board
     grid[move[:index]] = move[:mark]
   end
 
-  def rows
+  def rows # gets all starting indexes of rows
     [].tap do |rows|
       (grid_size - 1).downto(0) do |index|
         rows << index if index % size == 0
@@ -19,22 +19,22 @@ class Board
     end
   end
 
-  def get_row(row_head)
+  def get_row(row_head) # gets all the value in a row
     grid[row_head...(row_head + size)]
   end
 
-  def horizontal_win?
+  def horizontal_win? # check if any one of the rows has a winner
     rows.each do |row_head|
       return true if matched?(get_row(row_head))
     end
     return false
   end
 
-  def columns
+  def columns # gets all starting indexes of columns
     [*0...size]
   end
 
-  def get_column(column_head)
+  def get_column(column_head) # gets all the value in a column
     [].tap do |column|
       [*column_head...grid_size].map do |idx|
         column << grid[idx] if idx % size == column_head
@@ -42,24 +42,24 @@ class Board
     end
   end
 
-  def vertical_win?
+  def vertical_win? # check if any one of the column has a winner
     columns.each do |column_head|
       return true if matched?(get_column(column_head))
     end
     return false
   end
 
-  def diagonals
+  def diagonals # gets all starting indexes of diagonals
     [0, (size-1)]
   end
 
-  def get_diagonal(diagonal_head)
+  def get_diagonal(diagonal_head) # returns values in diagonals
     diagonal_head == 0 ? direction = (size + 1) : direction = (size - 1)
     current_point = diagonal_head
     get_diagonal_values(current_point, direction)
   end
 
-  def get_diagonal_values(current_point, direction)
+  def get_diagonal_values(current_point, direction) # gets value inside diagonal lines
     [].tap do |diagonal|
       size.times do |_|
         diagonal << grid[current_point]
@@ -68,23 +68,23 @@ class Board
     end
   end
 
-  def diagonal_win?
+  def diagonal_win? # check if any of the diagonal has a winner
     diagonals.each do |diagonal_head|
       return true if matched?(get_diagonal(diagonal_head))
     end
     return false
   end
 
-  def matched?(target_array)
+  def matched?(target_array) # match the valude inside an given array, return false if it still contains "empty" spots or the values inside the arrary doesn't match
     return false if target_array.include?("_")
     target_array.uniq.length == 1
   end
 
-  def game_win?
+  def game_win? # check if one of the winning condition has met
     horizontal_win? || vertical_win? || diagonal_win?
   end
 
-  def finish?
+  def finish? # check if the game has finished (no more empty spots)
     !grid.include?("_")
   end
 
