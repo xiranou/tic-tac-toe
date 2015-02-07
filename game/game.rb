@@ -5,7 +5,7 @@ class Game
     @board = Board.new
     @ai = GameAi.new(board)
     @marks = ["x","o"]
-    @turn = []
+    @turn = [] # keep tracks of turn
   end
 
   def set_mark(choice)
@@ -14,7 +14,7 @@ class Game
     end
   end
 
-  def winner
+  def winner # the last mark saved in turn and game_win? returns true should be the winner.
     turn.last == player ? "player" : "computer"
   end
 
@@ -33,7 +33,7 @@ class Game
     turn << computer
   end
 
-  def game_turn(current_turn)
+  def game_turn(current_turn) # determins who goes at the current_turn base on the mark they choose
     current_turn == player ? player_turn : ai_turn
   end
 
@@ -47,19 +47,19 @@ class Game
     GameUi.print_screen(board)
   end
 
-  def game_round
+  def game_round # play each turn according to 'X' first then 'O', if there's a winner in the current turn, stop and annouce winner
     marks.cycle do |current_turn|
-      game_turn(current_turn)
+      game_turn(current_turn) # pass current_turn to game_turn to determins whose turn is it
       GameUi.print_screen(board)
       return GameUi.annouce_winner(winner) if board.game_win?
     end
   end
 
   def play
-    set_game
-    game_round unless board.finish?
-    GameUi.annouce_winner("draw") unless board.game_win?
-    if play_again?
+    set_game # star of game, let player choose mark
+    game_round unless board.finish? # process to each round unless board.finish?
+    GameUi.annouce_winner("draw") unless board.game_win? # annouce draw game unless there's a winner
+    if play_again? # prompt for repeat game
       reset_game
       play
     else
