@@ -36,4 +36,13 @@ describe "Game" do
     end
   end
 
+  describe "reset_game" do
+    it "should properly reset game" do
+      game = Game.new
+      game.board.mark(index: 0, mark: "x")
+      game.reset_game
+      expect(game.board.grid.include?("x")).to be false
+    end
+  end
+
 end
