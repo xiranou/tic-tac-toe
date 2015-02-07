@@ -1,7 +1,7 @@
 require 'rspec'
-require './game/tic_tac_toe'
+require './game/board'
 
-describe TicTacToeBoard do
+describe Board do
   def mark_spots(spot_indexes, mark="x")
     spot_indexes.each do |idx|
       @board.mark(index: idx, mark: mark)
@@ -21,7 +21,7 @@ describe TicTacToeBoard do
   end
 
   before :each do
-    @board = TicTacToeBoard.new
+    @board = Board.new
   end
 
   it "should initialize with a default 3x3 grid" do

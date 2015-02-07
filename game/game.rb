@@ -2,7 +2,7 @@ class Game
   attr_reader :board, :player, :computer, :ai, :marks, :turn
 
   def initialize
-    @board = TicTacToeBoard.new
+    @board = Board.new
     @ai = GameAi.new(board)
     @marks = ["x","o"]
     @turn = []
@@ -63,7 +63,7 @@ class Game
   end
 
   def reset_game
-    self.board = TicTacToeBoard.new
+    self.board = Board.new
     self.ai = GameAi.new(board)
     play
   end

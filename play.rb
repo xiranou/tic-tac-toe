@@ -1,4 +1,4 @@
-require './game/tic_tac_toe'
+require './game/board'
 require './game/game_ai'
 require './game/game_ui'
 require './game/game'
