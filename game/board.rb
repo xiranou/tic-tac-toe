@@ -37,7 +37,7 @@ class Board
   def get_column(column_head)
     [].tap do |column|
       [*column_head...grid_size].map do |idx|
-        column << grid[idx] if idx % 3 == column_head
+        column << grid[idx] if idx % size == column_head
       end
     end
   end
