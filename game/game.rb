@@ -59,13 +59,17 @@ class Game
     set_game
     game_round unless board.finish?
     GameUi.annouce_winner("draw") unless board.game_win?
-    play_again? ? reset_game : GameUi.goodbye_prompt
+    if play_again?
+      reset_game
+      play
+    else
+      GameUi.goodbye_prompt
+    end
   end
 
   def reset_game
     self.board = Board.new
     self.ai = GameAi.new(board)
-    play
   end
 
   def play_again?
