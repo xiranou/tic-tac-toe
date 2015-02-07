@@ -2,8 +2,9 @@ module GameUi
   class << self
     def print_screen(board)
       clear_screen
-      puts "Enter the correspoding number to play, type exit/quit to quit"
       puts board
+      puts "Enter the correspoding number to play"
+      exit_command_prompt
     end
 
     def clear_screen
@@ -16,7 +17,8 @@ module GameUi
     end
 
     def choose_mark(marks)
-      puts "Please choose your turn: #{marks.join(" / ")}, type exit/quit to quit"
+      puts "Please choose your turn: #{marks.join(" / ")}"
+      exit_command_prompt
       choice = player_input
       if marks.include?(choice)
         choice_index = marks.index(choice)
@@ -29,6 +31,10 @@ module GameUi
     def player_move(message=nil)
       puts message if message
       move_index = player_input.to_i
+    end
+
+    def exit_command_prompt
+      puts "Type exit/quit to quit the game."
     end
 
     def again_prompt(message='Play Again? (y/n)')
