@@ -2,8 +2,7 @@ module GameUi
   class << self
     def print_screen(board)
       clear_screen
-      grid, size = board.grid, board.size
-      grid.each_slice(size) {|row| puts row.join(" | ")}
+      puts board.to_s
     end
 
     def clear_screen

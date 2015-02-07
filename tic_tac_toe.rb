@@ -95,4 +95,21 @@ class TicTacToeBoard
       end
     end
   end
+
+  def generate_index_grid
+    [].tap do |index_grid|
+      grid.each_with_index do |value, index|
+        value == '_' ? index_grid << index.to_s : index_grid << value
+      end
+    end
+  end
+
+  def to_s
+    idx_grid = generate_index_grid
+    [].tap do |box|
+      idx_grid.each_slice(size) do |row|
+        box << row.join(" | ")
+      end
+    end.join("\n")
+  end
 end
