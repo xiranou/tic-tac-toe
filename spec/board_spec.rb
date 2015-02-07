@@ -41,15 +41,15 @@ describe Board do
     end
   end
 
-  describe "horizontal win" do
+  describe "win pattern row" do
     it "should return true if a row has the same marks" do
       mark_spots([*0..2])
-      expect(@board.horizontal_win?).to be true
+      expect(@board.win_pattern_met?(:row)).to be true
     end
 
     it "should return false if no row has the same marks" do
       mark_spots([1,4,5])
-      expect(@board.horizontal_win?).to be false
+      expect(@board.win_pattern_met?(:row)).to be false
     end
   end
 
@@ -59,15 +59,15 @@ describe Board do
     end
   end
 
-  describe "vertical win" do
+  describe "win_pattern_met?(:column)" do
     it "should return true if a column contains the same marks" do
       mark_spots([0,3,6])
-      expect(@board.vertical_win?).to be true
+      expect(@board.win_pattern_met?(:column)).to be true
     end
 
     it "should return false if no column has the same marks" do
      mark_spots([1,4,5])
-      expect(@board.vertical_win?).to be false
+      expect(@board.win_pattern_met?(:column)).to be false
     end
   end
 
@@ -77,20 +77,20 @@ describe Board do
     end
   end
 
-  describe "diagonal win" do
+  describe "win_pattern_met?(:diagonal)" do
     it "should return true if a diagonal contains the same marks" do
       mark_spots([0,4,8])
-      expect(@board.diagonal_win?).to be true
+      expect(@board.win_pattern_met?(:diagonal)).to be true
     end
 
     it "should return true if the other diagonal contains the same marks" do
       mark_spots([2,4,6], "o")
-      expect(@board.diagonal_win?).to be true
+      expect(@board.win_pattern_met?(:diagonal)).to be true
     end
 
     it "should return false if no diagonal has the same marks" do
      mark_spots([1,4,5])
-      expect(@board.diagonal_win?).to be false
+      expect(@board.win_pattern_met?(:diagonal)).to be false
     end
   end
 

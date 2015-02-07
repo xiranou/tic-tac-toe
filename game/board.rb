@@ -75,13 +75,23 @@ class Board
     return false
   end
 
+  def win_pattern_met?(pattern)
+    target_array = self.send("#{pattern}s")
+    target_array.each do |target_head|
+      values = self.send("get_#{pattern}", target_head)
+      return true if matched?(values)
+    end
+    return false
+  end
+
   def matched?(target_array) # match the valude inside an given array, return false if it still contains "empty" spots or the values inside the arrary doesn't match
     return false if target_array.include?("_")
     target_array.uniq.length == 1
   end
 
   def game_win? # check if one of the winning condition has met
-    horizontal_win? || vertical_win? || diagonal_win?
+    # horizontal_win? || vertical_win? || diagonal_win?
+    win_pattern_met?("row") || win_pattern_met?("column") || win_pattern_met?("diagonal")
   end
 
   def finish? # check if the game has finished (no more empty spots)
