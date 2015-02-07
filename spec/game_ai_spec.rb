@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../game_ai'
-require_relative '../tic_tac_toe'
+require './game/game_ai'
+require './game/tic_tac_toe'
 
 describe "GameAi" do
   before do

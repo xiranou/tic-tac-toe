@@ -1,8 +1,8 @@
 require 'rspec'
-require_relative '../tic_tac_toe'
-require_relative '../game_ai'
-require_relative '../game_ui'
-require_relative '../game'
+require './game/tic_tac_toe'
+require './game/game_ai'
+require './game/game_ui'
+require './game/game'
 
 describe "Game" do
 
