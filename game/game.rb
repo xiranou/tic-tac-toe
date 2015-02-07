@@ -20,7 +20,7 @@ class Game
 
   def player_turn(message=nil)
     move = {index: GameUi.player_move(message), mark: player}
-    valid_move?(move[:index]) ? board.mark(move) : player_turn("invalid move! pick another!")
+    valid_move?(move[:index]) ? board.mark(move) : player_turn("Invalid move! Pick another!")
     turn << player
   end
 

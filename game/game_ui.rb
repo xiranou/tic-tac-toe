@@ -2,7 +2,7 @@ module GameUi
   class << self
     def print_screen(board)
       clear_screen
-      puts "enter the correspoding number to play"
+      puts "Enter the correspoding number to play"
       puts board
     end
 
@@ -20,12 +20,12 @@ module GameUi
       if marks.include?(choice)
         choice_index = marks.index(choice)
       else
-        puts "invalid choice! Choose again."
+        puts "No such mark, choose again."
         choose_mark(marks)
       end
     end
 
-    def player_move(message)
+    def player_move(message=nil)
       puts message if message
       move_index = player_input.to_i
     end
@@ -33,7 +33,7 @@ module GameUi
     def again_prompt(message='Play Again? (y/n)')
       puts message
       choice = player_input
-      ['y','n'].include?(choice) ? choice : again_prompt("invalid choice!")
+      ['y','n'].include?(choice) ? choice : again_prompt("Unrecongize option #{choice}, please confirm.")
     end
 
     def goodbye_prompt(message="Goodbye!")
